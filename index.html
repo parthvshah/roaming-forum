@@ -21,6 +21,27 @@
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
 
+    <!-- Custom styles -->
+    <style>
+        .arrow-up {
+          width: 0; 
+          height: 0; 
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          
+          border-bottom: 20px solid green;
+        }
+
+        .arrow-down {
+          width: 0; 
+          height: 0; 
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          
+          border-top: 20px solid red;
+        }
+      </style>
+
   </head>
 
   <body>
@@ -76,14 +97,18 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <hr>
           <div class="post-preview">
+            <div class="">
               <ul class="list-inline">
                   <li class="list-inline-item">
-                        <div class="arrow-up"></div>
+                        <p class="d-inline" style="color: green" id="upvote-count">+25</p>
+                        <a href="#"><div class="arrow-up"></div></a>
                         <br>
-                        <div class="arrow-down"></div>
+                        <a href="#"><div class="arrow-down"></div></a>
+                        <p class="d-inline" style="color: red" id="upvote-count">-2</p>
+
                   </li>
                 </ul>
-            
+            </div>
               <h2 class="post-title">
                 It's this easy to create your own website!
               </h2>
@@ -91,31 +116,9 @@
                 With only 2 hours and a mug of coffee, design webpages that look like this.
               </p>
 
-              
-            
             <p class="post-meta">Posted by
               Parth
               on 8-10-2018</p>
-
-                <style>
-                  .arrow-up {
-                    width: 0; 
-                    height: 0; 
-                    border-left: 20px solid transparent;
-                    border-right: 20px solid transparent;
-                    
-                    border-bottom: 20px solid green;
-                  }
-
-                  .arrow-down {
-                    width: 0; 
-                    height: 0; 
-                    border-left: 20px solid transparent;
-                    border-right: 20px solid transparent;
-                    
-                    border-top: 20px solid red;
-                  }
-                </style>
 
               <p>Comments</p>
               <p class="post-meta">Very useful post! Thank you.</p>

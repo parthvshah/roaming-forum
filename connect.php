@@ -39,10 +39,10 @@ if($link === false){
 // Print host information
 echo "Connect Successfully. Host info: " . mysqli_get_host_info($link). "<br/>";
 
-$sql = "CREATE TABLE posts(
-    _id VARCHAR(64) NOT NULL PRIMARY KEY,
+$sql0 = "CREATE TABLE posts(
+    _id VARCHAR(16) NOT NULL PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
-    body VARCHAR(100) NOT NULL,
+    body VARCHAR(6000) NOT NULL,
     author VARCHAR(30) NOT NULL,
     published_date DATETIME NOT NULL,
     comment varchar(100),
@@ -50,7 +50,22 @@ $sql = "CREATE TABLE posts(
     downvotes INT
 )";
 
-if(mysqli_query($link, $sql)){
+if(mysqli_query($link, $sql0)){
+    echo "Table created successfully.";
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+
+$sql1 = "CREATE TABLE contact(
+    _id VARCHAR(16) NOT NULL PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    emailid VARCHAR(30) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    usermessage VARCHAR(6000) NOT NULL,
+    sent_date DATETIME NOT NULL
+)";
+
+if(mysqli_query($link, $sql1)){
     echo "Table created successfully.";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);

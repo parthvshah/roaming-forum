@@ -195,8 +195,12 @@
     
         var oReq = new XMLHttpRequest();
         oReq.onload = function() {
-            var obj = this.response;
-            alert(obj);
+          var objArr = JSON.parse(this.response);
+          
+          for(var i = 0; i<objArr.length; i++)
+          {
+            // alert(objArr[i].title);
+          }
         };
         oReq.open("get", "getData.php", true);
         oReq.send();

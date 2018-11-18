@@ -5,24 +5,26 @@
     $dbname = "wt_db";
     
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $mysqli = new mysqli($servername, $username, $password, $dbname);
     // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
     } 
     
-    $sql = "SELECT title, body, author, published_date, upvotes, downvotes, comment FROM posts";
-    $result = $conn->query($sql);
+    $query = "SELECT title, body, author, published_date, upvotes, downvotes, comment FROM posts";
+    $result = $mysqli->query($query);
     // $postsObject = array();
     $rowObject = array();
+    $qObject = array();
     if ($result->num_rows > 0) {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
-            array_push($rowObject, $row["title"], $row["body"]);
+        while($row = $result->fetch_object()) {
+            // echo json_encode(get_object_vars($row));
+            array_push($rowObject, get_object_vars($row));
         }
         echo json_encode($rowObject);
     } else {
         echo "No Posts";
     }
-    $conn->close();
+    $mysqli->close();
 ?>

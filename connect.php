@@ -17,14 +17,13 @@ if ($conn->connect_error) {
 } 
 
 // Create database
-$sql = "CREATE DATABASE " . $db;
-if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully.";
-} else {
-    echo "Error creating database: " . $conn->error;
-}
+// $sql = "CREATE DATABASE " . $db;
+// if ($conn->query($sql) === TRUE) {
+//     echo "Database created successfully.";
+// } else {
+//     echo "Error creating database: " . $conn->error;
+// }
 echo "\n";
-$conn->close();
 
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
@@ -53,7 +52,7 @@ $sql0 = "CREATE TABLE posts(
 if(mysqli_query($link, $sql0)){
     echo "Table created successfully.";
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    echo "ERROR: Could not execute $sql. " . mysqli_error($link);
 }
 
 $sql1 = "CREATE TABLE contact(
@@ -68,8 +67,22 @@ $sql1 = "CREATE TABLE contact(
 if(mysqli_query($link, $sql1)){
     echo "Table created successfully.";
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    echo "ERROR: Could not execute $sql. " . mysqli_error($link);
 }
+
+$sql2 = "CREATE TABLE users(
+    _id VARCHAR(16) NOT NULL PRIMARY KEY,
+    emailid VARCHAR(30) NOT NULL,
+    user_password VARCHAR(6000) NOT NULL
+)";
+
+if(mysqli_query($link, $sql2)){
+    echo "Table created successfully.";
+} else{
+    echo "ERROR: Could not execute $sql. " . mysqli_error($link);
+}
+// $conn->close();
+
 ?>
 </body>
 </html>

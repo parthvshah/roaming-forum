@@ -30,7 +30,6 @@ if ($conn->connect_error) {
 $sql = sprintf("INSERT INTO contact (_id, username, emailid, phone, usermessage, sent_date) VALUES (%d, '%s', '%s', '%s', '%s', NOW())",$id,$username,$email,$phone,$message);
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
     echo '<script>window.location.replace("/index.html");</script>';
  
 } else {

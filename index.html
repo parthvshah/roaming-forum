@@ -194,12 +194,10 @@
 
     var oReq = new XMLHttpRequest();
     oReq.onload = function () {
-      //document.getElementById("nameDisplay").innerHTML = localStorage.getItem(name);
+      document.getElementById("nameDisplay").innerHTML = sessionStorage.getItem('name');
       var objArr = JSON.parse(this.response);
 
-      for (var i = 0; i < objArr.length; i++) {
-        // alert(objArr[i].title);
-      }
+
       var str = "";
 
       objArr.forEach(function (item) {

@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>The Roaming Forum</title>
+  <title>The Roaming Forum</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/signin.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Custom styles -->
-    <style>
-        .arrow-up {
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/signin.css" rel="stylesheet">
+
+
+  <!-- Custom styles -->
+  <style>
+    .arrow-up {
           width: 0; 
           height: 0; 
           border-left: 20px solid transparent;
@@ -46,12 +47,12 @@
         }
       </style>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <!-- Navigation -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <!-- Navigation -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index.html">The Roaming Forum</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,59 +81,71 @@
       </div>
     </nav> -->
 
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/signin-bg.jpg')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1 class="animated zoomIn">The Roaming Forum</h1>
-            </div>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/signin-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1 class="animated zoomIn">The Roaming Forum</h1>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <form id="signInForm" action="" class="form-signin">
-            <h1 class="h3 mb-3 font-weight-normal">Sign In or Sign Up</h1>
-            <label for="inputEmail" class="sr-only">Email</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <button onclick="signinSubmit()" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
-    </form>
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function signinSubmit(){
-            var formName = document.getElementById("signInForm").elements[0].value;
-            formName = formName.split("@");
-            var inputPassHash = document.getElementById("signInForm").elements[1].value;
-            var SQLQP = "parthvshah";
-            var oReq = new XMLHttpRequest();
-            oReq.onload = function() {
-                var SQLQP = this.response;
-            }
-            
-            if(inputPassHash==SQLQP){
-                localStorage.setItem(name, formName[0]);
-                setTimeout(function delay(){
-                    window.location = "/index.html";
+  <!-- Main Content -->
+  <form id="signInForm" action="" class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Sign In or Sign Up</h1>
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <button onclick="signinSubmit()" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
+  </form>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function reqListener() {
+      console.log(this.responseText);
+    }
+    function signinSubmit() {
 
-                }, 1000);
-            }
-            else{
-                alert("Invalid Credentials");
-            }
+      var formName = document.getElementById("signInForm").elements[0].value;
+      var inputPass = document.getElementById("signInForm").elements[1].value;
+      var SQLQPass;
 
+      var emailFlag = 0;
+
+      var oReq = new XMLHttpRequest();
+      oReq.onload = function () {
+        var objArr = JSON.parse(this.response);
+        objArr.forEach(function (item) {
+          if (item.emailid == formName) {
+            emailFlag = 1;
+            SQLQPass = item.user_password;
+          }
+        });
+        if (emailFlag == 1 && SQLQPass == inputPass) {
+          setTimeout(function delay() {
+            sessionStorage.setItem('name', formName.split("@")[0]);
+            window.location = "/index.html";
+
+          }, 1000);
         }
-    </script>
-    <!-- Custom scripts for this template -->
-    <script src="js/clean-blog.min.js"></script>
-  </body>
-  
+        else {
+          alert("Invalid Credentials");
+        }
+
+      }
+      oReq.open("get", "getUserData.php", true);
+      oReq.send();
+
+  }
+  </script>
+  <script src="js/clean-blog.min.js"></script>
+</body>
 
 </html>
